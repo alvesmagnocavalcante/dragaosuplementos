@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Produtos{% endblock %}
+
+{% block content %}
+    <h2 class="mb-4 text-primary-custom">Produtos Disponíveis</h2>
+    <div class="row">
+        {% for produto in lista_produto %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="{{ produto.imagem.url }}" alt="Imagem de {{ produto.produto }}" class="card-img-top" style="height: 200px; width: 100%; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title text-secondary-custom">{{ produto.produto }}</h5>
+                        <p class="card-text">Marca: {{ produto.marca }}</p>
+                        <p class="card-text">Preço: R$ {{ produto.preco }}</p>
+                        <a href="{% url 'detalhe_produto' produto.pk %}" class="btn text-white" style="background-color: #FF7D19ff; border-color: #FF7D19ff;">Ver Detalhes</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

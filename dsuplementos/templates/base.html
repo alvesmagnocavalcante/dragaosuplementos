@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragão Suplementos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'images/logo.ico' %}" type="image/x-icon">
+    <style>
+        body, h1, h2, h3, h4, h5, h6, .nav-link, .btn, .card {
+            font-family: 'Roboto', sans-serif;
+        }
+        .bg-primary-custom {
+            background-color: #0196B4ff !important;
+        }
+        .bg-secondary-custom {
+            background-color: #FF7D19ff !important;
+        }
+        .bg-tertiary-custom {
+            background-color: #264055ff !important;
+        }
+        .text-primary-custom {
+            color: #0196B4ff !important;
+        }
+        .text-secondary-custom {
+            color: #FF7D19ff !important;
+        }
+        .text-tertiary-custom {
+            color: #264055ff !important;
+        }
+        .logo {
+            height: 50px;
+        }
+        @media (max-width: 576px) {
+            .logo {
+                height: 40px;
+            }
+            .header-title {
+                font-size: 1.5rem;
+            }
+        }
+        .min-vh-100 {
+            min-height: 100vh;
+        }
+        .d-flex-center {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        /* Custom card styles */
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card-img-top {
+            object-fit: cover;
+            height: 200px;
+        }
+    </style>
+</head>
+<body class="d-flex-center min-vh-100">
+    <header class="bg-tertiary-custom text-white p-3 w-100">
+        <div class="container d-flex flex-column align-items-center">
+            <div class="d-flex align-items-center mb-3 mb-md-0">
+                <img src="{% static 'images/logo.ico' %}" alt="Logo" class="logo">
+                <h1 class="ml-3 header-title">Dragão Suplementos</h1>
+            </div>
+            <nav>
+                <ul class="nav flex-column flex-md-row justify-content-center">
+                    {% if request.resolver_match.url_name == "detalhe_produto" %}
+                        <li class="nav-item"><a class="nav-link text-white" href="{% url 'lista_produto' %}">Lista de Produtos</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="container mt-4 flex-grow-1">
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="bg-tertiary-custom text-white text-center py-3 mt-4 w-100">
+        <div class="d-flex justify-content-center align-items-center mb-3">
+            <img src="{% static 'images/logo.ico' %}" alt="Logo" class="logo">
+        </div>
+        <p>&copy; 2024 Dragão Suplementos</p>
+        <div>
+            <a href="https://www.instagram.com/dragao_suplementos_/" class="text-white mr-3"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/seu_numero" class="text-white"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

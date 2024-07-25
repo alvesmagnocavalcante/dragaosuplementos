@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}Detalhes do Produto{% endblock %}
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{ detalhe_produto.imagem.url }}" alt="{{ detalhe_produto.produto }}" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <h2>{{ detalhe_produto.produto }}</h2>
+                <p><strong>Marca:</strong> {{ detalhe_produto.marca }}</p>
+                <p><strong>Descrição:</strong> {{ detalhe_produto.descricao }}</p>
+                <p><strong>Preço:</strong> R$ {{ detalhe_produto.preco }}</p>
+                <!-- Botão Solicitar -->
+                <a href="https://wa.me/+5585998724872?text=Olá!%20Estou%20interessado%20em%20{{ detalhe_produto.produto }}." class="btn text-white" style="background-color: #FF7D19ff; border-color: #FF7D19ff;">Solicitar</a>
+                <!-- Botão de Pagamento -->
+                <button id="checkout-button" class="btn text-white" style="background-color: #FF7D19ff; border-color: #FF7D19ff;">Pagar com Stripe</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        const stripe = Stripe('{{ STRIPE_PUBLIC_KEY }}');
+        const checkoutButton = document.getElementById('checkout-button');
+
+        checkoutButton.addEventListener('click', function () {
+            fetch("{% url 'checkout' detalhe_produto.id %}", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}',
+                },
+            })
+            .then(response => response.json())
+            .then(session => {
+                return stripe.redirectToCheckout({ sessionId: session.id });
+            })
+            .then(result => {
+                if (result.error) {
+                    alert(result.error.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+{% endblock %}
