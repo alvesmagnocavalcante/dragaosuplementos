@@ -16,21 +16,20 @@ Bem-vindo ao repositório do Dragão Suplementos, uma loja virtual para venda de
 
 ## Visão Geral
 
-O Dragão Suplementos é um projeto de e-commerce desenvolvido para a venda de suplementos alimentares. O projeto foi desenvolvido usando Django para o back-end e Bootstrap para o front-end.
+O Dragão Suplementos é um projeto de e-commerce desenvolvido para a venda de suplementos alimentares. O projeto utiliza Django para o back-end e Bootstrap para o front-end, oferecendo uma experiência de usuário agradável e responsiva.
 
 ## Funcionalidades
 
-- Listagem de produtos com informações detalhadas.
-- Página de detalhes de cada produto.
-- Integração com o Stripe para pagamento online.
-- Links para contato via WhatsApp e Instagram.
-- Layout responsivo usando Bootstrap.
-- Centralização de elementos no header e footer.
-- Formatação e estilização personalizada usando Bootstrap.
+- **Listagem de Produtos**: Exibe todos os produtos disponíveis com detalhes.
+- **Detalhes do Produto**: Página dedicada para cada produto com descrição completa e imagem.
+- **Pagamento Online**: Integração com Stripe para processamento seguro de pagamentos.
+- **Contato via WhatsApp e Instagram**: Links diretos para redes sociais.
+- **Layout Responsivo**: Design que se adapta a diferentes tamanhos de tela.
+- **Personalização com Bootstrap**: Estilo visual coerente e personalizável com Bootstrap.
 
 ## Instalação
 
-Siga os passos abaixo para configurar o projeto localmente:
+Siga as etapas abaixo para configurar o projeto localmente:
 
 1. Clone o repositório:
     ```bash
