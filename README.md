@@ -10,9 +10,6 @@ Bem-vindo ao repositório do Dragão Suplementos, uma loja virtual para venda de
 - [Configuração](#configuração)
 - [Uso](#uso)
 - [Estrutura do Projeto](#estrutura-do-projeto)
-- [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- [Contribuição](#contribuição)
-- [Licença](#licença)
 
 ## Visão Geral
 
